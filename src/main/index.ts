@@ -113,7 +113,7 @@ log.errorHandler.startCatching({
       `${error.stack}`;
 
     if (!app.isReady()) {
-      dialog.showErrorBox(`YouTube Music Desktop App Crashed`, `Application crashed before ready\n\n${dialogMessage}`);
+      dialog.showErrorBox(`Kaus Music Crashed`, `Application crashed before ready\n\n${dialogMessage}`);
     } else {
       const options = ["Copy to Clipboard and Exit", "Exit"];
       if (!app.isPackaged) {
@@ -122,7 +122,7 @@ log.errorHandler.startCatching({
 
       result = dialog.showMessageBoxSync({
         title: "Error",
-        message: "YouTube Music Desktop App Crashed",
+        message: "Kaus Music Crashed",
         detail: dialogMessage,
         type: "error",
         buttons: options
@@ -130,7 +130,7 @@ log.errorHandler.startCatching({
 
       // Copy to Clipboard
       if (result === 0 || result === 2) {
-        clipboard.writeText(`YouTube Music Desktop App Crashed\n\n${dialogMessage}`);
+        clipboard.writeText(`Kaus Music Crashed\n\n${dialogMessage}`);
       }
     }
 
@@ -157,7 +157,7 @@ log.info("Application launched");
 app.enableSandbox();
 
 // appMenu allows for some basic windows management, editMenu allow for copy and paste shortcuts on MacOS
-const template: MenuItemConstructorOptions[] = [{ role: "appMenu", label: "YouTube Music Desktop App" }, { role: "editMenu" }];
+const template: MenuItemConstructorOptions[] = [{ role: "appMenu", label: "Kaus Music" }, { role: "editMenu" }];
 const builtMenu = isDarwin ? Menu.buildFromTemplate(template) : null; // null for performance https://www.electronjs.org/docs/latest/tutorial/performance#8-call-menusetapplicationmenunull-when-you-do-not-need-a-default-menu
 Menu.setApplicationMenu(builtMenu);
 
@@ -231,15 +231,15 @@ function handleProtocol(url: string) {
 }
 
 // This will register the protocol in development, this is intentional and should stay this way for development purposes
-if (!app.isDefaultProtocolClient("ytmd")) {
+if (!app.isDefaultProtocolClient("kaus")) {
   if (process.defaultApp) {
     if (process.argv.length >= 2) {
       log.info("Application set as default protcol client for 'ytmd'");
-      app.setAsDefaultProtocolClient("ytmd", process.execPath, [path.resolve(process.argv[1])]);
+      app.setAsDefaultProtocolClient("kaus", process.execPath, [path.resolve(process.argv[1])]);
     }
   } else {
-    log.info("Application set as default protcol client for 'ytmd'");
-    app.setAsDefaultProtocolClient("ytmd", process.execPath);
+    log.info("Application set as default protcol client for 'kaus'");
+    app.setAsDefaultProtocolClient("kaus", process.execPath);
   }
 }
 

@@ -2,7 +2,7 @@ import type { ForgeConfig } from "@electron-forge/shared-types";
 import { MakerSquirrel } from "@electron-forge/maker-squirrel";
 import { MakerZIP } from "@electron-forge/maker-zip";
 import { MakerDeb } from "@electron-forge/maker-deb";
-import { MakerRpm } from "@electron-forge/maker-rpm";
+// import { MakerRpm } from "@electron-forge/maker-rpm";
 import { VitePlugin } from "@electron-forge/plugin-vite";
 import { FusesPlugin } from "@electron-forge/plugin-fuses";
 import { FuseV1Options, FuseVersion } from "@electron/fuses";
@@ -18,7 +18,7 @@ for (let i = 0; i < process.argv.length; i++) {
 
 const config: ForgeConfig = {
   packagerConfig: {
-    executableName: "youtube-music-desktop-app",
+    executableName: "kaus-music",
     icon: "./src/assets/icons/ytmd",
     extraResource: [
       "./src/assets/icons/tray.ico",
@@ -35,8 +35,8 @@ const config: ForgeConfig = {
     ],
     protocols: [
       {
-        name: "YouTube Music Desktop App",
-        schemes: ["ytmd"]
+        name: "Kaus Music",
+        schemes: ["kaus"]
       }
     ],
     appCategoryType: "public.app-category.music",
@@ -48,17 +48,17 @@ const config: ForgeConfig = {
       iconUrl: `https://raw.githubusercontent.com/${process.env.YTMD_UPDATE_FEED_OWNER ?? "ytmdesktop"}/ytmdesktop/137c4e5c175c8c125cbcca9a5312611f80cd3bd9/src/assets/icons/ytmd.ico`
     }),
     new MakerZIP({}, ["darwin"]),
-    new MakerRpm({
-      options: {
-        categories: ["AudioVideo", "Audio"],
-        mimeType: ["x-scheme-handler/ytmd"],
-        icon: "./src/assets/icons/ytmd.png"
-      }
-    }),
+    // new MakerRpm({
+    //   options: {
+    //     categories: ["AudioVideo", "Audio"],
+    //     mimeType: ["x-scheme-handler/kaus"],
+    //     icon: "./src/assets/icons/ytmd.png"
+    //   }
+    // }),
     new MakerDeb({
       options: {
         categories: ["AudioVideo", "Audio"],
-        mimeType: ["x-scheme-handler/ytmd"],
+        mimeType: ["x-scheme-handler/kaus"],
         section: "sound",
         icon: "./src/assets/icons/ytmd.png"
       }

@@ -1,8 +1,8 @@
 {
-  "name": "youtube-music-desktop-app",
-  "productName": "YouTube Music Desktop App",
+  "name": "kaus-music",
+  "productName": "Kaus Music",
   "version": "2.0.10",
-  "description": "YouTube Music Desktop App",
+  "description": "Kaus Music - A Desktop App for YouTube Music",
   "main": ".vite/main/index.js",
   "private": true,
   "scripts": {
@@ -20,8 +20,7 @@
   },
   "keywords": [],
   "author": {
-    "name": "NovusTheory",
-    "email": "novustheory@gmail.com"
+    "name": "MRK001"
   },
   "license": "GPL-3.0-only",
   "devDependencies": {
